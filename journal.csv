@@ -1,2 +1,6 @@
-Date,Activité,Temps (min),XP,Statut
-2025-10-12,Initialisation du suivi,15,5,✅
+Date,Type d’activité,Activité,Temps (min),XP,Statut
+2025-10-12,Configuration,Initialisation du suivi,15,5,✅
+2025-10-10,Formation,Day 1 – Installation environnement Python + VS Code,90,15,✅
+2025-10-11,Formation,Day 2 – Sécurisation du filtre produits & export JSON,120,20,✅
+2025-10-13,Mini-projet,Création du fichier journal.csv et push GitHub,30,10,✅
+2025-10-22,Suivi manuel du journal,15,5,✅

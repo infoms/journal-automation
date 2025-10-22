@@ -2,8 +2,8 @@ name: Auto Commit Journal
 
 on:
   schedule:
-    - cron: "0 21 * * *"  # chaque jour à 21h UTC
-  workflow_dispatch:      # exécutable manuellement depuis GitHub
+    - cron: "0 21 * * *"   # Tous les jours à 21h UTC (23h Paris)
+  workflow_dispatch:       # Pour le lancer manuellement
 
 jobs:
   auto-commit:
@@ -11,20 +11,18 @@ jobs:
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v3
 
-      - name: Set up Python
-        uses: actions/setup-python@v5
-        with:
-          python-version: "3.10"
+      - name: Setup Git
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
 
-      - name: Run script
+      - name: Run commit_journal.py
         run: python commit_journal.py
 
-      - name: Commit and push if changed
+      - name: Commit and push changes
         run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add journal.csv
-          git commit -m "📘 Mise à jour automatique du journal du $(date +'%Y-%m-%d')" || echo "Aucun changement"
+          git add .
+          git commit -m "📘 Mise à jour automatique du journal du $(date +'%Y-%m-%d')" || echo "Aucun changement à valider"
           git push
