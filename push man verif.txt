@@ -1,0 +1,200 @@
+🧩 Étape 1 — Ouvrir ton projet
+
+📍 Emplacement :
+
+C:\Users\MAMADOU\automation-lab\journal-automation
+
+➡️ Ouvre ce dossier dans Visual Studio Code ou dans le terminal PowerShell.
+
+📝 Étape 2 — Mettre à jour le journal
+
+Ouvre le fichier :
+
+journal.csv
+
+
+Ajoute une nouvelle ligne en fin de fichier au format suivant :
+
+AAAA-MM-JJ,Activité,Temps (min),XP,Statut
+
+
+🔹 Exemple :
+
+2025-10-23,Rédaction du rapport quotidien,25,10,✅
+
+
+Sauvegarde le fichier (Ctrl + S).
+
+💾 Étape 3 — Enregistrer et pousser sur GitHub
+
+Ouvre le terminal intégré dans VS Code (ou PowerShell) et exécute :
+
+cd C:\Users\MAMADOU\automation-lab\journal-automation
+git add journal.csv
+git commit -m "🪶 Mise à jour du journal du 2025-10-23"
+git push origin main
+
+
+🧭 Vérifie que le commit est bien visible sur :
+👉 https://github.com/infoms/journal-automation/commits/main
+
+📈 Étape 4 — Vérifier visuellement
+
+Clique sur journal.csv dans ton dépôt GitHub.
+
+Vérifie que ta nouvelle ligne s’y trouve bien.
+
+C’est terminé ! 🎯
+
+💡 BONUS : conseils pro
+
+🔹 Heure fixe : fais ton update chaque soir à la même heure (ex. 21 h).
+
+🔹 Format cohérent : ne change jamais l’ordre des colonnes.
+
+🔹 XP = points de progression (tu peux inventer ton propre barème).
+
+🔹 Statut : ✅ pour terminé, ⏳ pour en cours.
+
+Souhaites-tu que je te crée maintenant un mini modèle journal.csv vierge optimisé (avec en-têtes, colonnes prêtes, et un exemple à la ligne 1) pour que tu partes sur une base propre ?
+
+
+git add . && git commit -m "Mise à jour manuelle du journal" && git push
+
+
+
+
+
+
+Excellent réflexe d’avoir copié l’erreur complète — elle est très claire :
+👉 Git te dit qu’aucun fichier n’a été ajouté à la zone de préparation (no changes added to commit).
+
+Le problème vient du chemin relatif que tu utilises (../../journal.csv).
+Comme tu es dans le dossier .github/workflows, ce chemin est correct logiquement, mais Git préfère qu’on l’exécute depuis la racine du projet.
+
+✅ Voici comment corriger ça pas à pas :
+1️⃣ Reviens à la racine du projet :
+
+cd C:\Users\MAMADOU\automation-lab\journal-automation
+
+
+2️⃣ Vérifie que tu es bien à la racine :
+
+dir
+
+
+Tu dois voir un dossier .github, le fichier journal.csv et commit_journal.py.
+
+3️⃣ Ajoute tous les fichiers modifiés d’un coup :
+
+git add .
+
+
+4️⃣ Vérifie que c’est bien pris en compte :
+
+git status
+
+
+Tu dois voir les fichiers en vert (cela veut dire qu’ils sont prêts à être commités).
+
+5️⃣ Fais ton commit :
+
+git commit -m "📘 Mise à jour manuelle du journal du 2025-10-22"
+
+
+6️⃣ Envoie sur GitHub :
+
+git push origin main
+
+
+💡 Astuce :
+Tu peux refaire le tout en une seule commande rapide à l’avenir :
+
+git add . && git commit -m "Mise à jour manuelle du journal" && git push
+
+
+Souhaites-tu que je t’explique comment vérifier visuellement sur GitHub que ton commit a bien été poussé (dans l’interface du dépôt) ?
+
+Vous avez dit :
+oui
+ChatGPT a dit :
+
+Parfait 👌 — voici comment vérifier visuellement sur GitHub que ton commit manuel a bien été poussé.
+
+🧭 Étapes pour vérifier ton commit sur GitHub
+
+1️⃣ Va sur ton dépôt
+👉 https://github.com/infoms/journal-automation
+
+2️⃣ Clique sur l’onglet “Code” (tout en haut)
+C’est la vue principale du dépôt.
+Tu devrais voir la liste des fichiers (journal.csv, .github/, commit_journal.py, etc.)
+
+3️⃣ Vérifie la section “Commits”
+Sous le nom du dépôt (ligne grise), tu verras :
+
+main  | 1 commit  | Updated 3 minutes ago
+
+
+➡️ Clique sur le nombre de commits (par ex. “1 commit”).
+Cela t’affichera l’historique complet des commits.
+
+4️⃣ Contrôle le dernier commit
+
+Le plus récent doit s’appeler quelque chose comme :
+
+📘 Mise à jour manuelle du journal du 2025-10-22
+
+
+Vérifie aussi la date et l’auteur (toi).
+
+5️⃣ Ouvre le fichier journal.csv dans GitHub
+
+Clique sur journal.csv dans la liste des fichiers.
+
+Tu devrais voir ton contenu mis à jour (avec la nouvelle ligne d’activité ou de test).
+
+6️⃣ (Optionnel) Vérifie la page “Actions”
+Si tu veux t’assurer que GitHub Actions n’a pas relancé un workflow automatiquement :
+
+Clique sur l’onglet “Actions”.
+
+Tu verras s’il y a un nouveau run (il peut être en “Skipped”, “Success” ou “Failure” selon ta config).
+
+
+
+
+
+Parfait ✅
+Voici ton modèle prêt à l’emploi pour ton suivi dans GitHub avec CSV.
+Tu n’as qu’à copier-coller ce contenu dans ton fichier :
+📄 C:\Users\MAMADOU\automation-lab\journal-automation\journal.csv
+
+🧾 Contenu à coller dans journal.csv
+Date,Activité,Temps (min),XP,Statut,Commentaire
+2025-10-22,Initialisation du suivi,15,5,✅,Création du fichier journal et premier commit
+
+💡 Explication des colonnes
+Colonne	Description	Exemple
+Date	Jour de ton entrée au format AAAA-MM-JJ	2025-10-23
+Activité	Ce que tu as fait	Lecture du module "Optimisation"
+Temps (min)	Durée consacrée	45
+XP	Points que tu t’accordes (motivation)	10
+Statut	✅ terminé / ⏳ en cours / ❌ annulé	✅
+Commentaire	Note personnelle ou observation	Bonne productivité aujourd’hui
+📦 Routine quotidienne (rappel simplifié)
+
+Ouvre journal.csv
+
+Ajoute une nouvelle ligne avec ta journée
+
+Sauvegarde
+
+Dans le terminal :
+
+git add journal.csv
+git commit -m "📘 Journal du 2025-10-23"
+git push origin main
+
+
+Souhaites-tu que je te prépare aussi un modèle de message de commit intelligent (automatique selon la date du jour) pour que tu aies juste à copier-coller la commande sans modifier la date à la main ?
